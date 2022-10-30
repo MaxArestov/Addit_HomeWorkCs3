@@ -26,10 +26,10 @@ Console.WriteLine($"Значение а после замены - {a}, знач�
 int FillVar()
 {
     int num = 0;
-    Console.WriteLine("Введите число: ");
     bool check = true;
     while(check)
     {
+        Console.WriteLine("Введите число: ");
         bool parse = int.TryParse(Console.ReadLine(), out num);
         if (!parse)
         {

@@ -1,42 +1,38 @@
 ﻿//  2. Написать метод который принимает параметр и проверяет четное число или нет
 //  если число четное то вывести результат деления на 2 в параметр с out Возвращающий тип будет bool.
 Console.Clear();
-int a = FillVar();
-if (IsEven(a))
+int a = new int();
+if (IsEvenAndHalf(a, out int b))
 {
-    Console.WriteLine($"Число четное. При делении на 2 получается {a / 2}");
+    Console.WriteLine($"Число четное. При делении на 2 получаем {b}");
 }
-else Console.WriteLine("Число нечетное.");
+else Console.WriteLine("Число нечетное");
 
 
 
 
 
-
-bool IsEven(int num)
+bool IsEvenAndHalf(int digit, out int num)
 {
-    if (num % 10 == 0)
-    {
-        return true;
-    }
-    else return false;
-}
-int FillVar()
-{
-    int num = 0;
-    Console.WriteLine("Введите число: ");
     bool check = true;
     while (check)
     {
-        bool parse = int.TryParse(Console.ReadLine(), out num);
-        if (!parse)
+        Console.WriteLine("Введите число:");
+        bool isParsed = int.TryParse(Console.ReadLine(), out digit);
+        if (!isParsed)
         {
-            Console.WriteLine("Введены некорректные данные");
+            Console.WriteLine("Введены некорректные данные.");
         }
-        else
-        {
-            check = false;
-        }
+        else check = false;
     }
-    return num;
+    if (digit % 2 == 0)
+    {
+        num = digit / 2;
+        return true;
+    }
+    else
+    {
+        num = -1;
+        return false;
+    }
 }
