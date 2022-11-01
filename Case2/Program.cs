@@ -32,7 +32,7 @@ bool IsEvenAndHalf(int digit, out int num)
     }
     else
     {
-        num = -1;
+        num = default;
         return false;
     }
 }
